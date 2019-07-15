@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Safety First</string>
+    <string name="times_without_an_accident">TIMES WITHOUT AN ACCIDENT</string>
+    <string name="default_accident_number">0</string>
+</resources>
