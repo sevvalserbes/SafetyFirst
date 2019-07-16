@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="main_times_of_accident_text_size">80sp</dimen>
+    <dimen name="main_box_width">150dp</dimen>
+    <dimen name="main_box_height">150dp</dimen>
+    <dimen name="main_ib_margin">10dp</dimen>
+    <dimen name="main_times_text_size">50sp</dimen>
+    <dimen name="main_layout_padding">10dp</dimen>
+    <dimen name="main_tv_padding">10dp</dimen>
+    <dimen name="main_marginTop">10dp</dimen>
+</resources>

@@ -1,12 +1,10 @@
-package com.example.safetyfirst.main
+package com.example.safetyfirst.util.counterDataManagement
 
-import android.widget.Toast
-
-class CounterInfo {
+class CounterPrimary: CounterOperations {
 
     private var defaultAccidentNumber = 0
 
-    fun decreaseAccidentNumber(): Int{
+    override fun getDecreasedAccidentNumber(): Int{
         if (defaultAccidentNumber > 0){
             defaultAccidentNumber -= 1
         }
@@ -16,17 +14,16 @@ class CounterInfo {
         return defaultAccidentNumber
     }
 
-    fun increaseAccidentNumber(): Int{
+    override fun getIncreasedAccidentNumber(): Int{
         defaultAccidentNumber += 1
         return defaultAccidentNumber
     }
 
-    fun clearAccidentNumber(): Int{
+    override fun clearAccidentNumber(){
         defaultAccidentNumber = 0
-        return defaultAccidentNumber
     }
 
-    fun getCurrentAccidentNumber(): Int{
+    override fun getCurrentAccidentNumber(): Int{
         return defaultAccidentNumber
     }
 

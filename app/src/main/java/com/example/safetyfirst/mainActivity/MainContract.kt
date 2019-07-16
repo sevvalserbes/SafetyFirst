@@ -1,4 +1,4 @@
-package com.example.safetyfirst.main
+package com.example.safetyfirst.mainActivity
 
 interface MainContract {
 
@@ -10,6 +10,8 @@ interface MainContract {
 
         fun setAccidentTimesNumber(times: Int)
 
+        fun hideSupportActionBar()
+
     }
 
     interface Presenter{
@@ -18,11 +20,11 @@ interface MainContract {
 
         fun created()
 
-        fun onIncrementClicked()
+        fun onIncrementClick()
 
-        fun onDecrementClicked()
+        fun onDecrementClick()
 
-        fun onClearClicked()
+        fun onClearClick()
 
     }
 }

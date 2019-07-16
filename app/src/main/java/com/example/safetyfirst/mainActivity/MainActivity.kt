@@ -1,10 +1,11 @@
-package com.example.safetyfirst.main
+package com.example.safetyfirst.mainActivity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.AppCompatImageButton
 import androidx.appcompat.widget.AppCompatTextView
 import com.example.safetyfirst.R
+import com.example.safetyfirst.util.counterDataManagement.CounterPrimary
 
 class MainActivity : AppCompatActivity(), MainContract.View {
 
@@ -18,11 +19,10 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        supportActionBar?.hide()
 
-        val counterInfo = CounterInfo()
+        val counterPrimary = CounterPrimary()
 
-        this.mPresenter = MainPresenter(counterInfo)
+        this.mPresenter = MainPresenter(counterPrimary)
         mPresenter.setView(this)
         mPresenter.created()
     }
@@ -37,19 +37,23 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     override fun initOnClickListeners() {
 
         mButtonIncrement.setOnClickListener{
-            mPresenter.onIncrementClicked()
+            mPresenter.onIncrementClick()
         }
 
         mButtonDecrement.setOnClickListener {
-            mPresenter.onDecrementClicked()
+            mPresenter.onDecrementClick()
         }
 
         mButtonClear.setOnClickListener {
-            mPresenter.onClearClicked()
+            mPresenter.onClearClick()
         }
     }
 
     override fun setAccidentTimesNumber(times: Int) {
         mTextViewTimes.text = times.toString()
+    }
+
+    override fun hideSupportActionBar() {
+        supportActionBar?.hide()
     }
 }
