@@ -1,6 +1,6 @@
-package com.example.safetyfirst.util.counterDataManagement
+package com.example.safetyfirst.util.counter
 
-class CounterPrimary: CounterOperations {
+class LocalCounterOperations: ICounterOperations {
 
     private var defaultAccidentNumber = 0
 
@@ -19,7 +19,7 @@ class CounterPrimary: CounterOperations {
         return defaultAccidentNumber
     }
 
-    override fun clearAccidentNumber(){
+    override fun resetAccidentNumber(){
         defaultAccidentNumber = 0
     }
 

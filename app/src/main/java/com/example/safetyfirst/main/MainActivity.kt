@@ -1,11 +1,11 @@
-package com.example.safetyfirst.mainActivity
+package com.example.safetyfirst.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.AppCompatImageButton
 import androidx.appcompat.widget.AppCompatTextView
 import com.example.safetyfirst.R
-import com.example.safetyfirst.util.counterDataManagement.CounterPrimary
+import com.example.safetyfirst.util.counter.LocalCounterOperations
 
 class MainActivity : AppCompatActivity(), MainContract.View {
 
@@ -20,14 +20,14 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val counterPrimary = CounterPrimary()
+        val localCounterOperations = LocalCounterOperations()
 
-        this.mPresenter = MainPresenter(counterPrimary)
+        this.mPresenter = MainPresenter(localCounterOperations)
         mPresenter.setView(this)
         mPresenter.created()
     }
 
-    override fun bindView() {
+    override fun initViews() {
         mTextViewTimes = findViewById(R.id.main_tv_times_of_accident)
         mButtonIncrement = findViewById(R.id.main_ib_increment)
         mButtonDecrement = findViewById(R.id.main_ib_decrement)
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         }
     }
 
-    override fun setAccidentTimesNumber(times: Int) {
+    override fun setAccidentCounter(times: Int) {
         mTextViewTimes.text = times.toString()
     }
 

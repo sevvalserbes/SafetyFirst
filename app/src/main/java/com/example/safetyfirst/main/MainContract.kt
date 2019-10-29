@@ -1,14 +1,14 @@
-package com.example.safetyfirst.mainActivity
+package com.example.safetyfirst.main
 
 interface MainContract {
 
     interface View{
 
-        fun bindView()
+        fun initViews()
 
         fun initOnClickListeners()
 
-        fun setAccidentTimesNumber(times: Int)
+        fun setAccidentCounter(times: Int)
 
         fun hideSupportActionBar()
 

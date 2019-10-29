@@ -1,12 +1,12 @@
-package com.example.safetyfirst.util.counterDataManagement
+package com.example.safetyfirst.util.counter
 
-interface CounterOperations {
+interface ICounterOperations {
 
     fun getIncreasedAccidentNumber(): Int
 
     fun getDecreasedAccidentNumber(): Int
 
-    fun clearAccidentNumber()
+    fun resetAccidentNumber()
 
     fun getCurrentAccidentNumber(): Int
 }
