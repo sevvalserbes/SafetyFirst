@@ -1,6 +1,6 @@
 package com.example.safetyfirst.util.counter
 
-interface ICounterOperations {
+interface CounterOperations {
 
     fun getIncreasedAccidentNumber(): Int
 

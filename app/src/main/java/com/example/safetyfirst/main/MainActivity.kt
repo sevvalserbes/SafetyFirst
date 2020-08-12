@@ -9,12 +9,12 @@ import com.example.safetyfirst.util.counter.LocalCounterOperations
 
 class MainActivity : AppCompatActivity(), MainContract.View {
 
-    private lateinit var mPresenter: MainPresenter
+    private lateinit var presenter: MainPresenter
 
-    private lateinit var mTextViewTimes: AppCompatTextView
-    private lateinit var mButtonIncrement: AppCompatImageButton
-    private lateinit var mButtonDecrement: AppCompatImageButton
-    private lateinit var mButtonClear: AppCompatImageButton
+    private lateinit var textViewAccidentTimes: AppCompatTextView
+    private lateinit var buttonIncrement: AppCompatImageButton
+    private lateinit var buttonDecrement: AppCompatImageButton
+    private lateinit var buttonReset: AppCompatImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,35 +22,35 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
         val localCounterOperations = LocalCounterOperations()
 
-        this.mPresenter = MainPresenter(localCounterOperations)
-        mPresenter.setView(this)
-        mPresenter.created()
+        this.presenter = MainPresenter(localCounterOperations)
+        presenter.setView(this)
+        presenter.created()
     }
 
     override fun initViews() {
-        mTextViewTimes = findViewById(R.id.main_tv_times_of_accident)
-        mButtonIncrement = findViewById(R.id.main_ib_increment)
-        mButtonDecrement = findViewById(R.id.main_ib_decrement)
-        mButtonClear = findViewById(R.id.main_ib_clear)
+        textViewAccidentTimes = findViewById(R.id.text_view_accident_number)
+        buttonIncrement = findViewById(R.id.image_button_increment)
+        buttonDecrement = findViewById(R.id.image_button_decrement)
+        buttonReset = findViewById(R.id.image_button_reset)
     }
 
     override fun initOnClickListeners() {
 
-        mButtonIncrement.setOnClickListener{
-            mPresenter.onIncrementClick()
+        buttonIncrement.setOnClickListener{
+            presenter.onIncrementClick()
         }
 
-        mButtonDecrement.setOnClickListener {
-            mPresenter.onDecrementClick()
+        buttonDecrement.setOnClickListener {
+            presenter.onDecrementClick()
         }
 
-        mButtonClear.setOnClickListener {
-            mPresenter.onClearClick()
+        buttonReset.setOnClickListener {
+            presenter.onResetClick()
         }
     }
 
     override fun setAccidentCounter(times: Int) {
-        mTextViewTimes.text = times.toString()
+        textViewAccidentTimes.text = times.toString()
     }
 
     override fun hideSupportActionBar() {

@@ -1,38 +1,31 @@
 package com.example.safetyfirst.main
 
-import com.example.safetyfirst.util.counter.ICounterOperations
+import com.example.safetyfirst.util.counter.CounterOperations
 
-class MainPresenter(counterOperations: ICounterOperations): MainContract.Presenter {
+class MainPresenter(private var counterOperations: CounterOperations) : MainContract.Presenter {
 
-
-    private lateinit var mView: MainContract.View
-    private var mCounterOperations = counterOperations
+    private lateinit var view: MainContract.View
 
     override fun setView(view: MainContract.View) {
-        mView = view
+        this.view = view
     }
 
     override fun created() {
-        mView.initViews()
-        mView.hideSupportActionBar()
-        mView.initOnClickListeners()
-
+        view.initViews()
+        view.hideSupportActionBar()
+        view.initOnClickListeners()
     }
 
     override fun onIncrementClick() {
-        mView.setAccidentCounter(mCounterOperations.getIncreasedAccidentNumber())
-
+        view.setAccidentCounter(counterOperations.getIncreasedAccidentNumber())
     }
 
     override fun onDecrementClick() {
-        mView.setAccidentCounter(mCounterOperations.getDecreasedAccidentNumber())
-
+        view.setAccidentCounter(counterOperations.getDecreasedAccidentNumber())
     }
 
-    override fun onClearClick() {
-        mCounterOperations.resetAccidentNumber()
-        mView.setAccidentCounter(mCounterOperations.getCurrentAccidentNumber())
-
+    override fun onResetClick() {
+        counterOperations.resetAccidentNumber()
+        view.setAccidentCounter(counterOperations.getCurrentAccidentNumber())
     }
-
 }

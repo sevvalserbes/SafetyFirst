@@ -24,7 +24,7 @@ interface MainContract {
 
         fun onDecrementClick()
 
-        fun onClearClick()
+        fun onResetClick()
 
     }
 }

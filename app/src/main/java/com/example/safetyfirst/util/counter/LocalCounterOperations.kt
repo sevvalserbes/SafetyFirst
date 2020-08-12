@@ -1,30 +1,30 @@
 package com.example.safetyfirst.util.counter
 
-class LocalCounterOperations: ICounterOperations {
+class LocalCounterOperations : CounterOperations {
 
-    private var defaultAccidentNumber = 0
+    private var accidentNumber = 0
 
-    override fun getDecreasedAccidentNumber(): Int{
-        if (defaultAccidentNumber > 0){
-            defaultAccidentNumber -= 1
+    override fun getDecreasedAccidentNumber(): Int {
+        return if (accidentNumber > 0) {
+            accidentNumber = accidentNumber.minus(1)
+            accidentNumber
+        } else {
+            accidentNumber
         }
-        else{
+    }
 
+    override fun getIncreasedAccidentNumber(): Int {
+        return if (accidentNumber < 100) {
+            accidentNumber = accidentNumber.plus(1)
+            accidentNumber
+        } else {
+            100
         }
-        return defaultAccidentNumber
     }
 
-    override fun getIncreasedAccidentNumber(): Int{
-        defaultAccidentNumber += 1
-        return defaultAccidentNumber
+    override fun resetAccidentNumber() {
+        accidentNumber = 0
     }
 
-    override fun resetAccidentNumber(){
-        defaultAccidentNumber = 0
-    }
-
-    override fun getCurrentAccidentNumber(): Int{
-        return defaultAccidentNumber
-    }
-
+    override fun getCurrentAccidentNumber(): Int = accidentNumber
 }
